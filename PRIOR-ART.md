@@ -34,6 +34,24 @@ This is the first system that combines:
 - **manifest.json** as a declarative protocol for example repository definition
 - **CI-driven verification** as the quality gate (if it's green, it's correct)
 
+## Growth Model
+
+The initial seed consists of 50 popular libraries across 6 programming languages (C#, TypeScript/JavaScript, Python, Java, Go, Rust), generated with AI assistance. This establishes the critical mass needed for the platform to be immediately useful to AI agents.
+
+After the seed phase, the platform opens to community contributions following the npm/Docker Hub model: anyone can create an example repository, add a `manifest.json`, and publish it to example4.ai. CI automatically validates that examples build and pass tests — only green examples enter the catalog.
+
+This creates a self-reinforcing flywheel:
+1. More examples → more useful for AI agents
+2. More AI agent usage → more visibility for library maintainers
+3. More library maintainers publishing → more examples
+4. Nobody rebuilds the accumulated database → competitive moat
+
+## Public Presentation
+
+- **Event**: AI Week Italia
+- **Date**: May 1, 2026
+- **Format**: Live demo of AI agent using example4.ai to learn a library via MCP + LSAI semantic navigation
+
 ## Differentiation from Existing Solutions
 
 ### vs. DeepWiki and AI-generated documentation
