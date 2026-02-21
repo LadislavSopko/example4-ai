@@ -24,6 +24,12 @@ a:hover{opacity:.8}
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
 section{padding:100px 0}
 
+/* LANG SWITCHER */
+.lang-switch{position:fixed;top:20px;right:24px;z-index:100;display:flex;gap:4px;background:rgba(10,10,10,.85);backdrop-filter:blur(8px);border:1px solid #222;border-radius:999px;padding:4px}
+.lang-switch button{background:transparent;border:none;color:var(--text-dimmer);font-family:var(--mono);font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:999px;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.lang-switch button.active{background:var(--accent);color:#000}
+.lang-switch button:hover:not(.active){color:var(--text)}
+
 /* FADE IN */
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -146,22 +152,29 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
   .btn{width:100%;max-width:300px;justify-content:center}
   table{font-size:.82rem}
   th,td{padding:10px 12px}
+  .lang-switch{top:12px;right:12px}
 }
 </style>
 </head>
 <body>
+
+<!-- LANG SWITCHER -->
+<div class="lang-switch">
+  <button class="active" onclick="setLang('en')">EN</button>
+  <button onclick="setLang('it')">IT</button>
+</div>
 
 <!-- HERO -->
 <section class="hero">
 <div class="hero-inner">
   <div class="hero-logo">example4.ai</div>
   <h1 class="hero-headline" id="typed-target"></h1>
-  <p class="hero-sub">Real, buildable code examples for AI agents.<br>Stop burning tokens on documentation.</p>
+  <p class="hero-sub" data-i18n="hero-sub">Real, buildable code examples for AI agents.<br>Stop burning tokens on documentation.</p>
   <div class="hero-ctas">
-    <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
-    <a href="#problem" class="btn btn-secondary">See how it works ↓</a>
+    <a href="#waitlist" class="btn btn-primary" data-i18n="hero-cta1">Join the waitlist</a>
+    <a href="#problem" class="btn btn-secondary" data-i18n="hero-cta2">See how it works ↓</a>
   </div>
-  <p class="hero-note">Launching at <span>AI Week Italia</span> · May 2026</p>
+  <p class="hero-note" data-i18n="hero-note" data-i18n-html="1">Launching at <span>AI Week Italia</span> · May 2026</p>
 </div>
 </section>
 
@@ -169,27 +182,27 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="problem">
 <div class="container">
   <div class="fade-in">
-    <div class="section-label">The problem</div>
-    <h2 class="section-title">Documentation is a token tax.</h2>
+    <div class="section-label" data-i18n="problem-label">The problem</div>
+    <h2 class="section-title" data-i18n="problem-title">Documentation is a token tax.</h2>
   </div>
   <div class="cards">
     <div class="card fade-in">
       <div class="card-icon">🔥</div>
-      <div class="card-title">Tokens burned to generate it</div>
-      <div class="card-text">AI spends thousands of tokens synthesizing documentation that goes stale in weeks.</div>
+      <div class="card-title" data-i18n="problem-card1-title">Tokens burned to generate it</div>
+      <div class="card-text" data-i18n="problem-card1-text">AI spends thousands of tokens synthesizing documentation that goes stale in weeks.</div>
     </div>
     <div class="card fade-in">
       <div class="card-icon">🔥</div>
-      <div class="card-title">Tokens burned to read it</div>
-      <div class="card-text">Your AI agent parses pages of prose just to figure out how to call a method.</div>
+      <div class="card-title" data-i18n="problem-card2-title">Tokens burned to read it</div>
+      <div class="card-text" data-i18n="problem-card2-text">Your AI agent parses pages of prose just to figure out how to call a method.</div>
     </div>
     <div class="card fade-in">
       <div class="card-icon">❌</div>
-      <div class="card-title">Never verifiable</div>
-      <div class="card-text">No CI can tell you if documentation is still correct. Code can.</div>
+      <div class="card-title" data-i18n="problem-card3-title">Never verifiable</div>
+      <div class="card-text" data-i18n="problem-card3-text">No CI can tell you if documentation is still correct. Code can.</div>
     </div>
   </div>
-  <p class="section-cta fade-in">What if your AI could learn from real code instead?</p>
+  <p class="section-cta fade-in" data-i18n="problem-cta">What if your AI could learn from real code instead?</p>
 </div>
 </section>
 
@@ -198,10 +211,10 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <div class="container">
   <div class="solution-grid">
     <div class="solution-text fade-in">
-      <div class="section-label">The solution</div>
-      <h2 class="section-title">Code that documents itself.</h2>
-      <p class="solution-desc">example4.ai is an MCP server that gives your AI agent real, buildable, testable code examples for any library. No prose. No markdown. Just code that works.</p>
-      <div class="solution-tagline">If it builds, it's true. If tests pass, it's correct.</div>
+      <div class="section-label" data-i18n="solution-label">The solution</div>
+      <h2 class="section-title" data-i18n="solution-title">Code that documents itself.</h2>
+      <p class="solution-desc" data-i18n="solution-desc">example4.ai is an MCP server that gives your AI agent real, buildable, testable code examples for any library. No prose. No markdown. Just code that works.</p>
+      <div class="solution-tagline" data-i18n="solution-tagline">If it builds, it's true. If tests pass, it's correct.</div>
     </div>
     <div class="fade-in">
       <div class="code-block"><span class="ln"> 1</span> {
@@ -225,15 +238,15 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="how">
 <div class="container">
   <div class="fade-in">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">Three steps. Zero docs.</h2>
+    <div class="section-label" data-i18n="how-label">How it works</div>
+    <h2 class="section-title" data-i18n="how-title">Three steps. Zero docs.</h2>
   </div>
   <div class="steps">
     <div class="step fade-in">
       <div class="step-num">01</div>
       <div class="step-content">
-        <div class="step-title"><span>Plug in.</span></div>
-        <div class="step-desc">Connect example4.ai as an MCP server to your AI agent.</div>
+        <div class="step-title"><span data-i18n="how-step1-title">Plug in.</span></div>
+        <div class="step-desc" data-i18n="how-step1-desc">Connect example4.ai as an MCP server to your AI agent.</div>
         <div class="code-block">{
   <span class="ck">"mcpServers"</span>: {
     <span class="ck">"example4"</span>: {
@@ -246,8 +259,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
     <div class="step fade-in">
       <div class="step-num">02</div>
       <div class="step-content">
-        <div class="step-title"><span>Ask.</span></div>
-        <div class="step-desc">Your AI asks how to use a library.</div>
+        <div class="step-title"><span data-i18n="how-step2-title">Ask.</span></div>
+        <div class="step-desc" data-i18n="how-step2-desc">Your AI asks how to use a library.</div>
         <div class="code-block"><span class="cc">// Your prompt:</span>
 
 <span class="cv">"How do I use custom
@@ -258,8 +271,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
     <div class="step fade-in">
       <div class="step-num">03</div>
       <div class="step-content">
-        <div class="step-title"><span>Get real code.</span></div>
-        <div class="step-desc">Receives working code from a project that builds and passes tests.</div>
+        <div class="step-title"><span data-i18n="how-step3-title">Get real code.</span></div>
+        <div class="step-desc" data-i18n="how-step3-desc">Receives working code from a project that builds and passes tests.</div>
         <div class="code-block"><span class="cp">public class</span> <span class="cn">DateConverter</span>
   : <span class="cn">JsonConverter</span>&lt;<span class="cn">DateTime</span>&gt;
 {
@@ -280,8 +293,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="compare">
 <div class="container">
   <div class="fade-in">
-    <div class="section-label">Comparison</div>
-    <h2 class="section-title">example4.ai vs the old way.</h2>
+    <div class="section-label" data-i18n="compare-label">Comparison</div>
+    <h2 class="section-title" data-i18n="compare-title">example4.ai vs the old way.</h2>
   </div>
   <div class="table-wrap fade-in">
     <table>
@@ -289,12 +302,12 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
         <tr><th></th><th>Traditional Docs</th><th>DeepWiki</th><th>example4.ai</th></tr>
       </thead>
       <tbody>
-        <tr><td>Format</td><td>Prose / Markdown</td><td>Generated wiki</td><td>Buildable code</td></tr>
-        <tr><td>Verifiable</td><td>❌</td><td>❌</td><td>✅ CI/CD</td></tr>
-        <tr><td>Freshness</td><td>❌ Stale</td><td>❌ Snapshot</td><td>✅ Push-triggered</td></tr>
-        <tr><td>Token cost</td><td>🔥🔥🔥</td><td>🔥🔥</td><td>🟢 Minimal</td></tr>
+        <tr><td data-i18n="compare-format">Format</td><td data-i18n="compare-format-docs">Prose / Markdown</td><td data-i18n="compare-format-deep">Generated wiki</td><td data-i18n="compare-format-e4">Buildable code</td></tr>
+        <tr><td data-i18n="compare-verify">Verifiable</td><td>❌</td><td>❌</td><td>✅ CI/CD</td></tr>
+        <tr><td data-i18n="compare-fresh">Freshness</td><td data-i18n="compare-fresh-docs">❌ Stale</td><td data-i18n="compare-fresh-deep">❌ Snapshot</td><td data-i18n="compare-fresh-e4">✅ Push-triggered</td></tr>
+        <tr><td data-i18n="compare-tokens">Token cost</td><td>🔥🔥🔥</td><td>🔥🔥</td><td data-i18n="compare-tokens-e4">🟢 Minimal</td></tr>
         <tr><td>AI-native</td><td>❌</td><td>❌</td><td>✅ MCP + LSAI</td></tr>
-        <tr><td>Executable</td><td>❌</td><td>❌</td><td>✅ dotnet test</td></tr>
+        <tr><td data-i18n="compare-exec">Executable</td><td>❌</td><td>❌</td><td>✅ dotnet test</td></tr>
       </tbody>
     </table>
   </div>
@@ -307,15 +320,15 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
   <div class="stats">
     <div class="fade-in">
       <div class="stat-num" data-target="41" data-suffix="-86%">0%</div>
-      <div class="stat-label">Token savings vs traditional docs</div>
+      <div class="stat-label" data-i18n="stat1-label">Token savings vs traditional docs</div>
     </div>
     <div class="fade-in">
       <div class="stat-num" data-target="50" data-suffix="+">0</div>
-      <div class="stat-label">Libraries at launch</div>
+      <div class="stat-label" data-i18n="stat2-label">Libraries at launch</div>
     </div>
     <div class="fade-in">
       <div class="stat-num" data-target="6" data-suffix="">0</div>
-      <div class="stat-label">Languages supported</div>
+      <div class="stat-label" data-i18n="stat3-label">Languages supported</div>
     </div>
   </div>
 </div>
@@ -325,8 +338,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="languages">
 <div class="container lang-section">
   <div class="fade-in">
-    <div class="section-label">Ecosystem</div>
-    <h2 class="section-title">Multi-language from day one.</h2>
+    <div class="section-label" data-i18n="lang-label">Ecosystem</div>
+    <h2 class="section-title" data-i18n="lang-title">Multi-language from day one.</h2>
   </div>
   <div class="lang-badges fade-in">
     <span class="lang-badge">C#</span>
@@ -336,7 +349,7 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
     <span class="lang-badge">Go</span>
     <span class="lang-badge">Rust</span>
   </div>
-  <p class="lang-sub fade-in">And growing with the community.</p>
+  <p class="lang-sub fade-in" data-i18n="lang-sub">And growing with the community.</p>
 </div>
 </section>
 
@@ -344,22 +357,22 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="community">
 <div class="container">
   <div class="fade-in">
-    <div class="section-label">Community</div>
-    <h2 class="section-title">Publish your examples.<br>Grow the ecosystem.</h2>
+    <div class="section-label" data-i18n="community-label">Community</div>
+    <h2 class="section-title" data-i18n="community-title" data-i18n-html="1">Publish your examples.<br>Grow the ecosystem.</h2>
   </div>
-  <p class="community-desc fade-in">example4.ai is like npm for code examples. Publish example repos for your library, automatically verified by CI, and make them available to every AI agent on the planet.</p>
+  <p class="community-desc fade-in" data-i18n="community-desc">example4.ai is like npm for code examples. Publish example repos for your library, automatically verified by CI, and make them available to every AI agent on the planet.</p>
   <div class="mini-cards">
     <div class="mini-card fade-in">
-      <div class="mini-card-title">Library maintainers</div>
-      <div class="mini-card-text">Increase adoption of your library.</div>
+      <div class="mini-card-title" data-i18n="community-card1-title">Library maintainers</div>
+      <div class="mini-card-text" data-i18n="community-card1-text">Increase adoption of your library.</div>
     </div>
     <div class="mini-card fade-in">
-      <div class="mini-card-title">Developers</div>
-      <div class="mini-card-text">Contribute examples, build reputation.</div>
+      <div class="mini-card-title" data-i18n="community-card2-title">Developers</div>
+      <div class="mini-card-text" data-i18n="community-card2-text">Contribute examples, build reputation.</div>
     </div>
     <div class="mini-card fade-in">
-      <div class="mini-card-title">AI Agents</div>
-      <div class="mini-card-text">Access verified code via MCP.</div>
+      <div class="mini-card-title" data-i18n="community-card3-title">AI Agents</div>
+      <div class="mini-card-text" data-i18n="community-card3-text">Access verified code via MCP.</div>
     </div>
   </div>
 </div>
@@ -370,8 +383,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <div class="container">
   <div class="fade-in">
     <div class="powered-title">Powered by <span>LSAI</span></div>
-    <p class="powered-desc">Semantic code navigation that understands types, relationships, and call graphs. Not just grep.</p>
-    <a href="https://github.com/LadislavSopko/lsai-protocol">Learn more about LSAI →</a>
+    <p class="powered-desc" data-i18n="powered-desc">Semantic code navigation that understands types, relationships, and call graphs. Not just grep.</p>
+    <a href="https://github.com/LadislavSopko/lsai-protocol" data-i18n="powered-link">Learn more about LSAI →</a>
   </div>
 </div>
 </div>
@@ -380,24 +393,24 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 <section id="waitlist">
 <div class="container">
   <div class="waitlist fade-in">
-    <h2 class="section-title">Be the first to kill your docs.</h2>
-    <p class="waitlist-sub">Join the waitlist for early access. Launching May 2026.</p>
+    <h2 class="section-title" data-i18n="waitlist-title">Be the first to kill your docs.</h2>
+    <p class="waitlist-sub" data-i18n="waitlist-sub">Join the waitlist for early access. Launching May 2026.</p>
     <form class="waitlist-form" id="waitlist-form">
-      <input type="email" name="email" placeholder="you@company.com" required>
+      <input type="email" name="email" data-i18n-placeholder="waitlist-email" placeholder="you@company.com" required>
       <select name="role" required>
-        <option value="" disabled selected>I am a...</option>
-        <option value="developer">Developer</option>
-        <option value="maintainer">Library Maintainer</option>
-        <option value="lead">Team Lead</option>
-        <option value="enthusiast">AI Enthusiast</option>
-        <option value="other">Other</option>
+        <option value="" disabled selected data-i18n="waitlist-role-default">I am a...</option>
+        <option value="developer" data-i18n="waitlist-role-dev">Developer</option>
+        <option value="maintainer" data-i18n="waitlist-role-maint">Library Maintainer</option>
+        <option value="lead" data-i18n="waitlist-role-lead">Team Lead</option>
+        <option value="enthusiast" data-i18n="waitlist-role-ai">AI Enthusiast</option>
+        <option value="other" data-i18n="waitlist-role-other">Other</option>
       </select>
-      <button type="submit" class="btn btn-primary">Join waitlist →</button>
-      <p class="waitlist-note">No spam. Just launch updates.</p>
+      <button type="submit" class="btn btn-primary" data-i18n="waitlist-btn">Join waitlist →</button>
+      <p class="waitlist-note" data-i18n="waitlist-note">No spam. Just launch updates.</p>
     </form>
     <div class="waitlist-success" id="waitlist-success">
-      <h3>You're in.</h3>
-      <p>We'll notify you when example4.ai goes live.</p>
+      <h3 data-i18n="waitlist-ok-title">You're in.</h3>
+      <p data-i18n="waitlist-ok-text">We'll notify you when example4.ai goes live.</p>
     </div>
   </div>
 </div>
@@ -415,21 +428,208 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 </footer>
 
 <script>
+var T = {
+en: {
+  "headline": "Docs are dead.",
+  "hero-sub": "Real, buildable code examples for AI agents.<br>Stop burning tokens on documentation.",
+  "hero-cta1": "Join the waitlist",
+  "hero-cta2": "See how it works ↓",
+  "hero-note": "Launching at <span>AI Week Italia</span> · May 2026",
+  "problem-label": "The problem",
+  "problem-title": "Documentation is a token tax.",
+  "problem-card1-title": "Tokens burned to generate it",
+  "problem-card1-text": "AI spends thousands of tokens synthesizing documentation that goes stale in weeks.",
+  "problem-card2-title": "Tokens burned to read it",
+  "problem-card2-text": "Your AI agent parses pages of prose just to figure out how to call a method.",
+  "problem-card3-title": "Never verifiable",
+  "problem-card3-text": "No CI can tell you if documentation is still correct. Code can.",
+  "problem-cta": "What if your AI could learn from real code instead?",
+  "solution-label": "The solution",
+  "solution-title": "Code that documents itself.",
+  "solution-desc": "example4.ai is an MCP server that gives your AI agent real, buildable, testable code examples for any library. No prose. No markdown. Just code that works.",
+  "solution-tagline": "If it builds, it's true. If tests pass, it's correct.",
+  "how-label": "How it works",
+  "how-title": "Three steps. Zero docs.",
+  "how-step1-title": "Plug in.",
+  "how-step1-desc": "Connect example4.ai as an MCP server to your AI agent.",
+  "how-step2-title": "Ask.",
+  "how-step2-desc": "Your AI asks how to use a library.",
+  "how-step3-title": "Get real code.",
+  "how-step3-desc": "Receives working code from a project that builds and passes tests.",
+  "compare-label": "Comparison",
+  "compare-title": "example4.ai vs the old way.",
+  "compare-format": "Format",
+  "compare-format-docs": "Prose / Markdown",
+  "compare-format-deep": "Generated wiki",
+  "compare-format-e4": "Buildable code",
+  "compare-verify": "Verifiable",
+  "compare-fresh": "Freshness",
+  "compare-fresh-docs": "❌ Stale",
+  "compare-fresh-deep": "❌ Snapshot",
+  "compare-fresh-e4": "✅ Push-triggered",
+  "compare-tokens": "Token cost",
+  "compare-tokens-e4": "🟢 Minimal",
+  "compare-exec": "Executable",
+  "stat1-label": "Token savings vs traditional docs",
+  "stat2-label": "Libraries at launch",
+  "stat3-label": "Languages supported",
+  "lang-label": "Ecosystem",
+  "lang-title": "Multi-language from day one.",
+  "lang-sub": "And growing with the community.",
+  "community-label": "Community",
+  "community-title": "Publish your examples.<br>Grow the ecosystem.",
+  "community-desc": "example4.ai is like npm for code examples. Publish example repos for your library, automatically verified by CI, and make them available to every AI agent on the planet.",
+  "community-card1-title": "Library maintainers",
+  "community-card1-text": "Increase adoption of your library.",
+  "community-card2-title": "Developers",
+  "community-card2-text": "Contribute examples, build reputation.",
+  "community-card3-title": "AI Agents",
+  "community-card3-text": "Access verified code via MCP.",
+  "powered-desc": "Semantic code navigation that understands types, relationships, and call graphs. Not just grep.",
+  "powered-link": "Learn more about LSAI →",
+  "waitlist-title": "Be the first to kill your docs.",
+  "waitlist-sub": "Join the waitlist for early access. Launching May 2026.",
+  "waitlist-email": "you@company.com",
+  "waitlist-role-default": "I am a...",
+  "waitlist-role-dev": "Developer",
+  "waitlist-role-maint": "Library Maintainer",
+  "waitlist-role-lead": "Team Lead",
+  "waitlist-role-ai": "AI Enthusiast",
+  "waitlist-role-other": "Other",
+  "waitlist-btn": "Join waitlist →",
+  "waitlist-note": "No spam. Just launch updates.",
+  "waitlist-ok-title": "You're in.",
+  "waitlist-ok-text": "We'll notify you when example4.ai goes live."
+},
+it: {
+  "headline": "I docs sono morti.",
+  "hero-sub": "Esempi di codice reali, compilabili e testabili per agenti AI.<br>Smetti di bruciare token sulla documentazione.",
+  "hero-cta1": "Iscriviti alla waitlist",
+  "hero-cta2": "Scopri come funziona ↓",
+  "hero-note": "Lancio ad <span>AI Week Italia</span> · Maggio 2026",
+  "problem-label": "Il problema",
+  "problem-title": "La documentazione e' una tassa sui token.",
+  "problem-card1-title": "Token bruciati per generarla",
+  "problem-card1-text": "L'AI spende migliaia di token sintetizzando documentazione che diventa obsoleta in settimane.",
+  "problem-card2-title": "Token bruciati per leggerla",
+  "problem-card2-text": "Il tuo agente AI deve parsare pagine di prosa solo per capire come chiamare un metodo.",
+  "problem-card3-title": "Mai verificabile",
+  "problem-card3-text": "Nessun CI puo' dirti se la documentazione e' ancora corretta. Il codice si'.",
+  "problem-cta": "E se il tuo AI potesse imparare da codice reale?",
+  "solution-label": "La soluzione",
+  "solution-title": "Codice che si documenta da solo.",
+  "solution-desc": "example4.ai e' un server MCP che fornisce al tuo agente AI esempi di codice reali, compilabili e testabili per qualsiasi libreria. Niente prosa. Niente markdown. Solo codice che funziona.",
+  "solution-tagline": "Se compila, e' vero. Se i test passano, e' corretto.",
+  "how-label": "Come funziona",
+  "how-title": "Tre passi. Zero documentazione.",
+  "how-step1-title": "Collegati.",
+  "how-step1-desc": "Connetti example4.ai come server MCP al tuo agente AI.",
+  "how-step2-title": "Chiedi.",
+  "how-step2-desc": "Il tuo AI chiede come usare una libreria.",
+  "how-step3-title": "Ottieni codice reale.",
+  "how-step3-desc": "Riceve codice funzionante da un progetto che compila e i test passano.",
+  "compare-label": "Confronto",
+  "compare-title": "example4.ai vs il vecchio modo.",
+  "compare-format": "Formato",
+  "compare-format-docs": "Prosa / Markdown",
+  "compare-format-deep": "Wiki generata",
+  "compare-format-e4": "Codice compilabile",
+  "compare-verify": "Verificabile",
+  "compare-fresh": "Aggiornamento",
+  "compare-fresh-docs": "❌ Diventa stale",
+  "compare-fresh-deep": "❌ Snapshot statico",
+  "compare-fresh-e4": "✅ Aggiornato ad ogni push",
+  "compare-tokens": "Costo token",
+  "compare-tokens-e4": "🟢 Minimo",
+  "compare-exec": "Eseguibile",
+  "stat1-label": "Risparmio token vs docs tradizionali",
+  "stat2-label": "Librerie al lancio",
+  "stat3-label": "Linguaggi supportati",
+  "lang-label": "Ecosistema",
+  "lang-title": "Multi-linguaggio dal primo giorno.",
+  "lang-sub": "E in crescita con la community.",
+  "community-label": "Community",
+  "community-title": "Pubblica i tuoi esempi.<br>Fai crescere l'ecosistema.",
+  "community-desc": "example4.ai e' come npm per gli esempi di codice. Pubblica example repo per la tua libreria, verificati automaticamente da CI, e rendili disponibili a ogni agente AI del pianeta.",
+  "community-card1-title": "Library maintainer",
+  "community-card1-text": "Aumenta l'adoption della tua libreria.",
+  "community-card2-title": "Developer",
+  "community-card2-text": "Contribuisci esempi, costruisci reputazione.",
+  "community-card3-title": "Agenti AI",
+  "community-card3-text": "Accedi a codice verificato via MCP.",
+  "powered-desc": "Navigazione semantica del codice che comprende tipi, relazioni e grafi di chiamata. Non solo grep.",
+  "powered-link": "Scopri di piu' su LSAI →",
+  "waitlist-title": "Sii il primo a eliminare i tuoi docs.",
+  "waitlist-sub": "Iscriviti alla waitlist per l'accesso anticipato. Lancio maggio 2026.",
+  "waitlist-email": "tu@azienda.com",
+  "waitlist-role-default": "Sono un...",
+  "waitlist-role-dev": "Developer",
+  "waitlist-role-maint": "Library Maintainer",
+  "waitlist-role-lead": "Team Lead",
+  "waitlist-role-ai": "Appassionato AI",
+  "waitlist-role-other": "Altro",
+  "waitlist-btn": "Iscriviti →",
+  "waitlist-note": "Niente spam. Solo aggiornamenti sul lancio.",
+  "waitlist-ok-title": "Ci sei.",
+  "waitlist-ok-text": "Ti avviseremo quando example4.ai sara' online."
+}
+};
+
+var currentLang = localStorage.getItem("e4lang") || "en";
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("e4lang", lang);
+  document.documentElement.lang = lang;
+  var strings = T[lang];
+  // Update text
+  document.querySelectorAll("[data-i18n]").forEach(function(el) {
+    var key = el.getAttribute("data-i18n");
+    if (strings[key]) {
+      if (el.hasAttribute("data-i18n-html")) {
+        el.innerHTML = strings[key];
+      } else {
+        el.textContent = strings[key];
+      }
+    }
+  });
+  // Update placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(function(el) {
+    var key = el.getAttribute("data-i18n-placeholder");
+    if (strings[key]) el.placeholder = strings[key];
+  });
+  // Update select options
+  document.querySelectorAll("select option[data-i18n]").forEach(function(el) {
+    var key = el.getAttribute("data-i18n");
+    if (strings[key]) el.textContent = strings[key];
+  });
+  // Update buttons
+  document.querySelectorAll(".lang-switch button").forEach(function(b) {
+    b.classList.toggle("active", b.textContent === lang.toUpperCase());
+  });
+  // Retype headline
+  typeHeadline(strings["headline"]);
+}
+
 // Typing effect
-(function(){
-  var text = "Docs are dead.";
+var typeTimer = null;
+function typeHeadline(text) {
   var target = document.getElementById("typed-target");
+  if (typeTimer) clearTimeout(typeTimer);
   var i = 0;
   target.innerHTML = '<span class="cursor"></span>';
-  function type(){
-    if(i < text.length){
+  function step() {
+    if (i < text.length) {
       target.innerHTML = text.slice(0, i + 1) + '<span class="cursor"></span>';
       i++;
-      setTimeout(type, i === 1 ? 400 : 70 + Math.random() * 50);
+      typeTimer = setTimeout(step, i === 1 ? 300 : 60 + Math.random() * 40);
     }
   }
-  setTimeout(type, 600);
-})();
+  typeTimer = setTimeout(step, 200);
+}
+
+// Init language on load
+setLang(currentLang);
 
 // Fade-in on scroll
 (function(){
@@ -491,12 +691,12 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
         success.style.display = "block";
       } else {
         btn.disabled = false;
-        btn.textContent = "Join waitlist →";
+        btn.textContent = T[currentLang]["waitlist-btn"];
         alert("Something went wrong. Please try again.");
       }
     }).catch(function(){
       btn.disabled = false;
-      btn.textContent = "Join waitlist →";
+      btn.textContent = T[currentLang]["waitlist-btn"];
       alert("Network error. Please try again.");
     });
   });
