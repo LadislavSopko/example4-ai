@@ -57,7 +57,7 @@ section{padding:100px 0}
 .section-cta{font-size:1.2rem;color:var(--text);font-weight:600;font-style:italic}
 
 /* ===== CODE BLOCKS ===== */
-.code-block{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:var(--radius);padding:24px;font-family:var(--mono);font-size:clamp(.78rem,1.5vw,.88rem);line-height:1.7;overflow-x:auto;text-align:left;position:relative}
+.code-block{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:var(--radius);padding:24px;font-family:var(--mono);font-size:clamp(.78rem,1.5vw,.88rem);line-height:1.7;overflow-x:auto;text-align:left;position:relative;white-space:pre;word-wrap:break-word}
 .code-block .ln{color:#333;user-select:none;display:inline-block;width:2.2em;text-align:right;margin-right:1.2em}
 .ck{color:#f59e0b}.cs{color:#22c55e}.cn{color:#60a5fa}.cv{color:#e5e5e5}.cc{color:#555}.cp{color:#c084fc}.ct{color:#f472b6}
 
@@ -204,7 +204,18 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
       <div class="solution-tagline">If it builds, it's true. If tests pass, it's correct.</div>
     </div>
     <div class="fade-in">
-      <div class="code-block"><span class="ln">1</span>{<br><span class="ln">2</span>  <span class="ck">"library"</span>: <span class="cs">"Newtonsoft.Json"</span>,<br><span class="ln">3</span>  <span class="ck">"version"</span>: <span class="cs">"13.0.3"</span>,<br><span class="ln">4</span>  <span class="ck">"examples"</span>: [<br><span class="ln">5</span>    {<br><span class="ln">6</span>      <span class="ck">"name"</span>: <span class="cs">"basic-serialization"</span>,<br><span class="ln">7</span>      <span class="ck">"complexity"</span>: <span class="cs">"beginner"</span>,<br><span class="ln">8</span>      <span class="ck">"build"</span>: <span class="cs">"dotnet build"</span>,<br><span class="ln">9</span>      <span class="ck">"test"</span>: <span class="cs">"dotnet test"</span><br><span class="ln">10</span>    }<br><span class="ln">11</span>  ]<br><span class="ln">12</span>}</div>
+      <div class="code-block"><span class="ln"> 1</span> {
+<span class="ln"> 2</span>   <span class="ck">"library"</span>: <span class="cs">"Newtonsoft.Json"</span>,
+<span class="ln"> 3</span>   <span class="ck">"version"</span>: <span class="cs">"13.0.3"</span>,
+<span class="ln"> 4</span>   <span class="ck">"examples"</span>: [
+<span class="ln"> 5</span>     {
+<span class="ln"> 6</span>       <span class="ck">"name"</span>: <span class="cs">"basic-serialization"</span>,
+<span class="ln"> 7</span>       <span class="ck">"complexity"</span>: <span class="cs">"beginner"</span>,
+<span class="ln"> 8</span>       <span class="ck">"build"</span>: <span class="cs">"dotnet build"</span>,
+<span class="ln"> 9</span>       <span class="ck">"test"</span>: <span class="cs">"dotnet test"</span>
+<span class="ln">10</span>     }
+<span class="ln">11</span>   ]
+<span class="ln">12</span> }</div>
     </div>
   </div>
 </div>
@@ -223,7 +234,13 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
       <div class="step-content">
         <div class="step-title"><span>Plug in.</span></div>
         <div class="step-desc">Connect example4.ai as an MCP server to your AI agent.</div>
-        <div class="code-block"><span class="ln">1</span>{<br><span class="ln">2</span>  <span class="ck">"mcpServers"</span>: {<br><span class="ln">3</span>    <span class="ck">"example4"</span>: {<br><span class="ln">4</span>      <span class="ck">"url"</span>: <span class="cs">"https://example4.ai/mcp"</span><br><span class="ln">5</span>    }<br><span class="ln">6</span>  }<br><span class="ln">7</span>}</div>
+        <div class="code-block">{
+  <span class="ck">"mcpServers"</span>: {
+    <span class="ck">"example4"</span>: {
+      <span class="ck">"url"</span>: <span class="cs">"https://example4.ai/mcp"</span>
+    }
+  }
+}</div>
       </div>
     </div>
     <div class="step fade-in">
@@ -231,7 +248,11 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
       <div class="step-content">
         <div class="step-title"><span>Ask.</span></div>
         <div class="step-desc">Your AI asks how to use a library.</div>
-        <div class="code-block"><span class="cc">// Your prompt:</span><br><br><span class="cv">"How do I use custom</span><br><span class="cv"> JsonConverters in</span><br><span class="cv"> Newtonsoft.Json?"</span></div>
+        <div class="code-block"><span class="cc">// Your prompt:</span>
+
+<span class="cv">"How do I use custom
+ JsonConverters in
+ Newtonsoft.Json?"</span></div>
       </div>
     </div>
     <div class="step fade-in">
@@ -239,7 +260,16 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
       <div class="step-content">
         <div class="step-title"><span>Get real code.</span></div>
         <div class="step-desc">Receives working code from a project that builds and passes tests.</div>
-        <div class="code-block"><span class="cp">public class</span> <span class="cn">DateConverter</span><br>  : <span class="cn">JsonConverter</span><<span class="cn">DateTime</span>><br>{<br>  <span class="cp">public override</span> <span class="cn">DateTime</span><br>    <span class="ct">ReadJson</span>(<span class="cn">JsonReader</span> <span class="cv">r</span>, ...)<br>  {<br>    <span class="cp">var</span> <span class="cv">s</span> = (<span class="cn">string</span>)<span class="cv">r</span>.Value;<br>    <span class="cp">return</span> <span class="cn">DateTime</span>.Parse(<span class="cv">s</span>);<br>  }<br>}</div>
+        <div class="code-block"><span class="cp">public class</span> <span class="cn">DateConverter</span>
+  : <span class="cn">JsonConverter</span>&lt;<span class="cn">DateTime</span>&gt;
+{
+  <span class="cp">public override</span> <span class="cn">DateTime</span>
+    <span class="ct">ReadJson</span>(<span class="cn">JsonReader</span> <span class="cv">r</span>, ...)
+  {
+    <span class="cp">var</span> <span class="cv">s</span> = (<span class="cn">string</span>)<span class="cv">r</span>.Value;
+    <span class="cp">return</span> <span class="cn">DateTime</span>.Parse(<span class="cv">s</span>);
+  }
+}</div>
       </div>
     </div>
   </div>
