@@ -45,8 +45,9 @@ section{padding:100px 0}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:40px 24px}
-.hero-inner{max-width:880px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:40px 24px;overflow:hidden}
+.hero-inner{max-width:880px;position:relative;z-index:2}
+#particles{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .hero-logo{font-family:var(--mono);font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:700;color:var(--accent);letter-spacing:-.02em;margin-bottom:32px;display:inline-block}
 .hero-headline{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:24px;min-height:1.1em}
 .hero-headline .cursor{display:inline-block;width:3px;height:.85em;background:var(--accent);margin-left:4px;animation:blink 1s step-end infinite;vertical-align:text-bottom}
@@ -210,6 +211,7 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
 
 <!-- HERO -->
 <section class="hero">
+<canvas id="particles"></canvas>
 <div class="hero-inner">
   <div class="hero-logo">xmp4 · example4.ai</div>
   <h1 class="hero-headline" id="typed-target"></h1>
@@ -881,6 +883,86 @@ setLang(currentLang);
       alert("Network error. Please try again.");
     });
   });
+})();
+
+// Particle network (mouse-reactive) — uiticket parity
+(() => {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  let w, h, particles, mouse = { x: -9999, y: -9999 };
+  const CONNECT_DIST = 140;
+  const MOUSE_DIST = 200;
+  const COUNT_FACTOR = 12000;
+
+  function resize() {
+    const hero = canvas.parentElement;
+    w = hero.offsetWidth;
+    h = hero.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    init();
+  }
+  function init() {
+    const count = Math.floor((w * h) / COUNT_FACTOR);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.5 + 0.5, o: Math.random() * 0.5 + 0.2,
+      });
+    }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245, 158, 11, ${p.o})`;
+      ctx.fill();
+    }
+    for (let i = 0; i < particles.length; i++) {
+      const a = particles[i];
+      const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+      if (dm < MOUSE_DIST) {
+        const alpha = (1 - dm / MOUSE_DIST) * 0.6;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+        ctx.lineWidth = 0.8; ctx.stroke();
+      }
+      for (let j = i + 1; j < particles.length; j++) {
+        const b = particles[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < CONNECT_DIST) {
+          const alpha = (1 - d / CONNECT_DIST) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(245, 158, 11, ${alpha})`;
+          ctx.lineWidth = 0.6; ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  canvas.parentElement.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  }, { passive: true });
+  canvas.parentElement.addEventListener('mouseleave', () => {
+    mouse.x = -9999; mouse.y = -9999;
+  });
+  window.addEventListener('resize', resize, { passive: true });
+  resize(); draw();
 })();
 </script>
 </body>
