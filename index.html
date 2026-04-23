@@ -8,11 +8,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://example4.ai">
 <meta property="og:title" content="xmp4 — Semantic code intelligence MCP">
-<meta property="og:description" content="Stop grepping library source. 547 OSS libraries pre-indexed with SCIP. Free MCP endpoint at mcp.example4.ai.">
+<meta property="og:description" content="Stop grepping library source. 547 OSS libraries semantically pre-indexed. Free MCP endpoint at mcp.example4.ai.">
 <meta property="og:image" content="https://example4.ai/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="xmp4 — Semantic code intelligence MCP">
-<meta name="twitter:description" content="Stop grepping library source. 547 OSS libraries pre-indexed with SCIP. Free MCP endpoint.">
+<meta name="twitter:description" content="Stop grepping library source. 547 OSS libraries semantically pre-indexed. Free MCP endpoint.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -258,8 +258,8 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
   <div class="solution-grid">
     <div class="solution-text fade-in">
       <div class="section-label" data-i18n="solution-label">The solution</div>
-      <h2 class="section-title" data-i18n="solution-title">SCIP-indexed. Zero install.</h2>
-      <p class="solution-desc" data-i18n="solution-desc" data-i18n-html="1">xmp4 is a hosted MCP server. 547 popular open-source libraries are pre-indexed with <strong>SCIP</strong> — the semantic code format Sourcegraph uses. Your AI agent gets type-resolved symbols, call graphs, inheritance chains, and source bodies via 17 MCP tools. No cloning, no grep, no false positives.</p>
+      <h2 class="section-title" data-i18n="solution-title">Semantically indexed. Zero install.</h2>
+      <p class="solution-desc" data-i18n="solution-desc" data-i18n-html="1">xmp4 is a hosted MCP server. 547 popular open-source libraries are <strong>semantically pre-indexed</strong>. Your AI agent gets type-resolved symbols, call graphs, inheritance chains, and source bodies via 17 MCP tools. No cloning, no grep, no false positives.</p>
       <div class="solution-tagline" data-i18n="solution-tagline">Context7 gives you docs. GitMCP gives you file paths. xmp4 gives you the compiler.</div>
     </div>
     <div class="fade-in">
@@ -271,7 +271,7 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
   <span class="ck">file_path</span>=<span class="cs">"src/flask/app.py"</span>
 )
 
-<span class="cc">→ 5 SCIP-resolved callers
+<span class="cc">→ 5 type-resolved callers
   in 47 tokens.
   Zero false positives.</span></div>
     </div>
@@ -318,11 +318,11 @@ footer{padding:48px 24px;text-align:center;border-top:1px solid #1a1a1a;margin-t
       <div class="step-num">03</div>
       <div class="step-content">
         <div class="step-title"><span data-i18n="how-step3-title">Get the compiler's answer.</span></div>
-        <div class="step-desc" data-i18n="how-step3-desc">Signature, full method body, real SCIP-resolved callers — 3 calls, ~667 tokens.</div>
+        <div class="step-desc" data-i18n="how-step3-desc">Signature, full method body, real type-resolved callers — 3 calls, ~667 tokens.</div>
         <div class="code-block"><span class="cp">xmp4_info</span>      → <span class="cc">signature</span>
 <span class="cp">xmp4_source</span>    → <span class="cc">50-line body</span>
 <span class="cp">xmp4_callers</span>   → <span class="cc">247 real callers
-                 SCIP-resolved</span>
+                 type-resolved</span>
 
 <span class="cc">Total: ~667 tokens.
 No clone. No noise.</span></div>
@@ -405,19 +405,19 @@ Same tokenizer every backend. Ratio unaffected.</span></div>
 <div class="container">
   <div class="stats">
     <div class="fade-in">
-      <div class="stat-num" data-target="547" data-suffix="+">0</div>
+      <div class="stat-num" data-target="547" data-suffix="+" data-stat-key="repos">0</div>
       <div class="stat-label" data-i18n="stat1-label">OSS libraries indexed</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num" data-target="9145" data-suffix="">0</div>
-      <div class="stat-label" data-i18n="stat2-label">SCIP projects navigable</div>
+      <div class="stat-num" data-target="9145" data-suffix="" data-stat-key="projects">0</div>
+      <div class="stat-label" data-i18n="stat2-label">Projects navigable</div>
     </div>
     <div class="fade-in">
       <div class="stat-num" data-target="17" data-suffix="">0</div>
       <div class="stat-label" data-i18n="stat3-label">MCP tools</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num" data-target="10" data-suffix="">0</div>
+      <div class="stat-num" data-target="10" data-suffix="" data-stat-key="languages">0</div>
       <div class="stat-label" data-i18n="stat4-label">Languages covered</div>
     </div>
   </div>
@@ -485,8 +485,8 @@ Same tokenizer every backend. Ratio unaffected.</span></div>
 <div class="powered">
 <div class="container">
   <div class="fade-in">
-    <div class="powered-title">Powered by <span>LSAI</span> · SCIP</div>
-    <p class="powered-desc" data-i18n="powered-desc">Semantic code navigation that understands types, call graphs, and inheritance — built on the SCIP indexing format used by Sourcegraph. Not grep. Not embeddings. Actual compiler output.</p>
+    <div class="powered-title">Powered by <span>LSAI</span></div>
+    <p class="powered-desc" data-i18n="powered-desc">Semantic code navigation that understands types, call graphs, and inheritance. Not grep. Not embeddings. Actual compiler output.</p>
     <a href="https://github.com/LadislavSopko/lsai-protocol" data-i18n="powered-link">Learn more about LSAI →</a>
   </div>
 </div>
@@ -560,6 +560,12 @@ Same tokenizer every backend. Ratio unaffected.</span></div>
   <a href="https://github.com/LadislavSopko/lsai-protocol">LSAI protocol</a>
   <a href="https://github.com/0ics-srls/lsai-xmp4.public/issues/new?template=request-repo.yml">Request a library</a>
 </div>
+<div class="footer-disclaimer" data-i18n="disclaimer" data-i18n-html="1" style="color:#555;font-size:.75rem;max-width:720px;margin:24px auto 12px;line-height:1.5">
+  xmp4 builds on <a href="https://github.com/sourcegraph/scip" style="color:#666">SCIP</a>, an open code-indexing format released by Sourcegraph under the Apache 2.0 License.
+  xmp4 is an independent product by 0ics srl and is not affiliated with, endorsed by, or sponsored by Sourcegraph.
+  Indexed OSS libraries remain property of their respective authors under their original licenses — see
+  <a href="https://github.com/0ics-srls/lsai-xmp4.public/blob/main/docs/privacy.md" style="color:#666">privacy &amp; attribution</a>.
+</div>
 <div class="footer-copy">© 2026 0ics srl. All rights reserved.</div>
 </footer>
 
@@ -581,8 +587,8 @@ en: {
   "problem-card3-text": "Every library you want to grep costs you GBs of disk and minutes of cloning. Per repo. Per session.",
   "problem-cta": "xmp4 answers all three questions in 3 tool calls, zero install.",
   "solution-label": "The solution",
-  "solution-title": "SCIP-indexed. Zero install.",
-  "solution-desc": "xmp4 is a hosted MCP server. 547 popular open-source libraries are pre-indexed with <strong>SCIP</strong> — the semantic code format Sourcegraph uses. Your AI agent gets type-resolved symbols, call graphs, inheritance chains, and source bodies via 17 MCP tools. No cloning, no grep, no false positives.",
+  "solution-title": "Semantically indexed. Zero install.",
+  "solution-desc": "xmp4 is a hosted MCP server. 547 popular open-source libraries are <strong>semantically pre-indexed</strong>. Your AI agent gets type-resolved symbols, call graphs, inheritance chains, and source bodies via 17 MCP tools. No cloning, no grep, no false positives.",
   "solution-tagline": "Context7 gives you docs. GitMCP gives you file paths. xmp4 gives you the compiler.",
   "how-label": "How it works",
   "how-title": "Three steps. Semantic answers.",
@@ -591,7 +597,7 @@ en: {
   "how-step2-title": "Ask.",
   "how-step2-desc": "Your AI asks a real semantic question.",
   "how-step3-title": "Get the compiler's answer.",
-  "how-step3-desc": "Signature, full method body, real SCIP-resolved callers — 3 calls, ~667 tokens.",
+  "how-step3-desc": "Signature, full method body, real type-resolved callers — 3 calls, ~667 tokens.",
   "compare-label": "Comparison",
   "compare-title": "xmp4 vs the alternatives.",
   "compare-h-grep": "grep + clone",
@@ -624,7 +630,7 @@ en: {
   "proof-detail": "Tested on 4 tier-1 big OSS libraries (<code>spring-boot</code>, <code>tokio</code>, <code>django</code>, <code>efcore</code>) asking <em>\"give me the signature, body, and real callers of X.\"</em><br><br><strong>xmp4</strong>: 1 558 tokens total (12 calls).<br><strong>GitMCP</strong>: 652 tokens per-call, but <strong>65 629 tokens</strong> to reach xmp4's answer (needs to fetch each file in full).<br><strong>Context7</strong>: cannot answer real-caller questions <strong>at any cost</strong> — curated docs don't index the call graph.<br><strong>grep + clone</strong>: 2 978 tokens plus 270 MB of disk and 2-5 minutes of cloning.",
   "proof-link": "Read the full whitepaper + source code →",
   "stat1-label": "OSS libraries indexed",
-  "stat2-label": "SCIP projects navigable",
+  "stat2-label": "Projects navigable",
   "stat3-label": "MCP tools",
   "stat4-label": "Languages covered",
   "lang-label": "Coverage",
@@ -641,8 +647,9 @@ en: {
   "community-card2-text": "Make your library AI-navigable. Zero work on your side.",
   "community-card3-title": "AI agents",
   "community-card3-text": "Never grep a library again. Compiler-level semantics, zero install.",
-  "powered-desc": "Semantic code navigation that understands types, call graphs, and inheritance — built on the SCIP indexing format used by Sourcegraph. Not grep. Not embeddings. Actual compiler output.",
+  "powered-desc": "Semantic code navigation that understands types, call graphs, and inheritance. Not grep. Not embeddings. Actual compiler output.",
   "powered-link": "Learn more about LSAI →",
+  "disclaimer": "xmp4 builds on <a href=\"https://github.com/sourcegraph/scip\" style=\"color:#666\">SCIP</a>, an open code-indexing format released by Sourcegraph under the Apache 2.0 License. xmp4 is an independent product by 0ics srl and is not affiliated with, endorsed by, or sponsored by Sourcegraph. Indexed OSS libraries remain property of their respective authors under their original licenses — see <a href=\"https://github.com/0ics-srls/lsai-xmp4.public/blob/main/docs/privacy.md\" style=\"color:#666\">privacy &amp; attribution</a>.",
   "quickstart-title": "Connect your AI in 30 seconds.",
   "quickstart-sub": "Free public endpoint. No API key. No install. Works with every MCP-capable client.",
   "quickstart-clients": "Full setup for <a href=\"https://github.com/0ics-srls/lsai-xmp4.public/blob/main/docs/connect-instructions.md\">Claude Code · Cursor · Claude Desktop · Continue · Windsurf</a>",
@@ -679,8 +686,8 @@ it: {
   "problem-card3-text": "Ogni libreria che vuoi greppare ti costa GB di disco e minuti di clone. Per repo. Per sessione.",
   "problem-cta": "xmp4 risponde a tutte e tre le domande in 3 tool call, zero install.",
   "solution-label": "La soluzione",
-  "solution-title": "SCIP-indicizzato. Zero install.",
-  "solution-desc": "xmp4 e' un server MCP ospitato. 547 librerie open-source popolari sono pre-indicizzate con <strong>SCIP</strong> — il formato di code intelligence che usa Sourcegraph. Il tuo agente AI ottiene simboli type-resolved, call graph, catene di ereditarieta' e body del sorgente via 17 tool MCP. Niente clone, niente grep, niente falsi positivi.",
+  "solution-title": "Semanticamente indicizzato. Zero install.",
+  "solution-desc": "xmp4 e' un server MCP ospitato. 547 librerie open-source popolari sono <strong>semanticamente pre-indicizzate</strong>. Il tuo agente AI ottiene simboli type-resolved, call graph, catene di ereditarieta' e body del sorgente via 17 tool MCP. Niente clone, niente grep, niente falsi positivi.",
   "solution-tagline": "Context7 ti da' i docs. GitMCP ti da' i path dei file. xmp4 ti da' il compilatore.",
   "how-label": "Come funziona",
   "how-title": "Tre passi. Risposte semantiche.",
@@ -689,7 +696,7 @@ it: {
   "how-step2-title": "Chiedi.",
   "how-step2-desc": "Il tuo AI fa una domanda semantica reale.",
   "how-step3-title": "Ottieni la risposta del compilatore.",
-  "how-step3-desc": "Firma, body completo del metodo, caller reali SCIP-risolti — 3 chiamate, ~667 token.",
+  "how-step3-desc": "Firma, body completo del metodo, caller reali type-resolved — 3 chiamate, ~667 token.",
   "compare-label": "Confronto",
   "compare-title": "xmp4 vs le alternative.",
   "compare-h-grep": "grep + clone",
@@ -722,7 +729,7 @@ it: {
   "proof-detail": "Testato su 4 librerie OSS tier-1 grandi (<code>spring-boot</code>, <code>tokio</code>, <code>django</code>, <code>efcore</code>) chiedendo <em>\"dammi firma, body e caller reali di X.\"</em><br><br><strong>xmp4</strong>: 1 558 token totali (12 chiamate).<br><strong>GitMCP</strong>: 652 token per chiamata, ma <strong>65 629 token</strong> per raggiungere la stessa risposta di xmp4 (serve fetch dell'intero file).<br><strong>Context7</strong>: non puo' rispondere a domande sui caller reali <strong>a nessun prezzo</strong> — i docs curati non indicizzano il call graph.<br><strong>grep + clone</strong>: 2 978 token piu' 270 MB di disco e 2-5 minuti di clone.",
   "proof-link": "Leggi il whitepaper completo + codice sorgente →",
   "stat1-label": "Librerie OSS indicizzate",
-  "stat2-label": "Progetti SCIP navigabili",
+  "stat2-label": "Progetti navigabili",
   "stat3-label": "Tool MCP",
   "stat4-label": "Linguaggi coperti",
   "lang-label": "Copertura",
@@ -739,8 +746,9 @@ it: {
   "community-card2-text": "Rendi la tua libreria AI-navigabile. Zero lavoro dalla tua parte.",
   "community-card3-title": "Agenti AI",
   "community-card3-text": "Mai piu' grep su una libreria. Semantica a livello compilatore, zero install.",
-  "powered-desc": "Navigazione semantica del codice che capisce tipi, call graph ed ereditarieta' — costruita sul formato di indicizzazione SCIP usato da Sourcegraph. Non grep. Non embedding. Vero output del compilatore.",
+  "powered-desc": "Navigazione semantica del codice che capisce tipi, call graph ed ereditarieta'. Non grep. Non embedding. Vero output del compilatore.",
   "powered-link": "Scopri di piu' su LSAI →",
+  "disclaimer": "xmp4 si basa su <a href=\"https://github.com/sourcegraph/scip\" style=\"color:#666\">SCIP</a>, un formato aperto di indicizzazione del codice rilasciato da Sourcegraph sotto licenza Apache 2.0. xmp4 e' un prodotto indipendente di 0ics srl e non e' affiliato, approvato o sponsorizzato da Sourcegraph. Le librerie OSS indicizzate restano proprieta' dei rispettivi autori sotto le licenze originali — vedi <a href=\"https://github.com/0ics-srls/lsai-xmp4.public/blob/main/docs/privacy.md\" style=\"color:#666\">privacy &amp; attribution</a>.",
   "quickstart-title": "Connetti il tuo AI in 30 secondi.",
   "quickstart-sub": "Endpoint pubblico gratis. Nessuna API key. Nessun install. Funziona con ogni client MCP.",
   "quickstart-clients": "Setup completo per <a href=\"https://github.com/0ics-srls/lsai-xmp4.public/blob/main/docs/connect-instructions.md\">Claude Code · Cursor · Claude Desktop · Continue · Windsurf</a>",
@@ -827,31 +835,50 @@ setLang(currentLang);
   els.forEach(function(el){ obs.observe(el); });
 })();
 
-// Animated counters
+// Animated counters — with live stats from /api/stats (falls back to static data-target on error)
 (function(){
   var nums = document.querySelectorAll("[data-target]");
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      obs.unobserve(el);
-      var target = parseInt(el.dataset.target);
-      var suffix = el.dataset.suffix || "";
-      var start = 0;
-      var duration = 1400;
-      var startTime = null;
-      function step(ts){
-        if(!startTime) startTime = ts;
-        var p = Math.min((ts - startTime) / duration, 1);
-        var ease = 1 - Math.pow(1 - p, 3);
-        var val = Math.round(start + (target - start) * ease);
-        el.textContent = val.toLocaleString() + suffix;
-        if(p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    });
-  }, {threshold: 0.5});
-  nums.forEach(function(n){ obs.observe(n); });
+
+  function animate(el){
+    var target = parseInt(el.dataset.target);
+    var suffix = el.dataset.suffix || "";
+    var start = 0;
+    var duration = 1400;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(start + (target - start) * ease);
+      el.textContent = val.toLocaleString() + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function startObserver(){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        obs.unobserve(e.target);
+        animate(e.target);
+      });
+    }, {threshold: 0.5});
+    nums.forEach(function(n){ obs.observe(n); });
+  }
+
+  fetch("https://dashboard.example4.ai/api/stats", { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(s){
+      if(!s) return;
+      var langCount = s.Languages ? Object.keys(s.Languages).length : 0;
+      document.querySelectorAll('[data-stat-key="repos"]').forEach(function(el){ el.dataset.target = s.Repos; });
+      document.querySelectorAll('[data-stat-key="projects"]').forEach(function(el){ el.dataset.target = s.Projects; });
+      if(langCount > 0)
+        document.querySelectorAll('[data-stat-key="languages"]').forEach(function(el){ el.dataset.target = langCount; });
+    })
+    .catch(function(){ /* keep static fallback */ })
+    .finally(startObserver);
 })();
 
 // Newsletter form — Formspree (same endpoint as before, no waitlist gate)
